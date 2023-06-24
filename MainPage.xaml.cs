@@ -12,5 +12,13 @@ public partial class MainPage : ContentPage
         var gamePage = new GamePage();
         await Navigation.PushAsync(gamePage);
     }
+
+    private async void ViewScoresButton_Clicked(object sender, EventArgs e)
+    {
+        var scoreBoardPage = new ScoreBoardPage();
+        await Navigation.PushAsync(scoreBoardPage);
+    }
 }
+
+
 

@@ -24,6 +24,13 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="StartGameButton_Clicked" />
+
+        <Button x:Name="ViewScoresButton"
+        Text="View Top 10 Scores"
+        Margin="0,20,0,0"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Clicked="ViewScoresButton_Clicked" />
     </Grid>
 
 </ContentPage>

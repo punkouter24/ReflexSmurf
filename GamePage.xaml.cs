@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
@@ -44,7 +45,11 @@ public partial class GamePage : ContentPage
     {
         if (IsGameOver())
         {
-            ShowGameOverDialog();
+            double averageTime = _stopwatches.Average(sw => sw.Elapsed.TotalMilliseconds);
+            ShowGameOverDialog($"{averageTime:0.00}");
+
+
+         //   ShowGameOverDialog();
             return;
         }
 
@@ -95,7 +100,37 @@ public partial class GamePage : ContentPage
 
     private async void ShowGameOverDialog(string averageTime = "N/A")
     {
-        await DisplayAlert("Game Over", $"Average Time: {averageTime}", "OK");
+        if (averageTime != "N/A")
+        {
+         //   int averageTimeInt = Convert.ToInt32(1000 * Convert.ToDouble(averageTime));
+          //  SaveScore(averageTimeInt); // Save score to storage
+        }
+
+          await DisplayAlert("Game Over", $"Average Time: {averageTime}", "OK");
+        //await DisplayAlert("Game Over", $"Average Time: {averageTime}\nTotal Score: {totalScore}", "OK");
         await Navigation.PopAsync();
+    }
+
+
+    private async void SaveScore(int scoreValue)
+    {
+        const string filename = "scores.json";
+        var scores = new List<Score>();
+
+        if (File.Exists(filename))
+        {
+            var json = await File.ReadAllTextAsync(filename);
+            scores = JsonSerializer.Deserialize<List<Score>>(json) ?? new List<Score>();
+        }
+
+        scores.Add(new Score(scoreValue, DateTime.Now));
+        scores = scores
+            .OrderByDescending(s => s.Value)
+            .ThenBy(s => s.Timestamp)
+            .Take(10)
+            .ToList();
+
+        var jsonString = JsonSerializer.Serialize(scores);
+        await File.WriteAllTextAsync(filename, jsonString);
     }
 }
