@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReflexSmurf.MainPage">
+
+    <Grid BackgroundColor="Gray">
+        <Label x:Name="TitleLabel"
+               Text="Reflex Game"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        <Button x:Name="StartGameButton"
+                Text="Start Game"
+                Margin="0,50,0,0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="StartGameButton_Clicked" />
+    </Grid>
+
+</ContentPage>
