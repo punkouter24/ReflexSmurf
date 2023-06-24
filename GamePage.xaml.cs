@@ -44,14 +44,11 @@ public partial class GamePage : ContentPage
     {
         if (IsGameOver())
         {
-            double averageTime = _stopwatches.Average(sw => sw.Elapsed.TotalMilliseconds);
-            await DisplayAlert("Game Over", $"Average Time: {averageTime:0.00} ms", "OK");
-            await Navigation.PopAsync();
-
+            ShowGameOverDialog();
             return;
         }
 
-        int delay = new Random().Next(2000, 4001); // Random delay between 2 and 4 seconds (in milliseconds)
+        int delay = new Random().Next(2000, 4001);
         await Task.Delay(delay);
 
         var currentBar = _bars[_currentBarIndex];
@@ -60,8 +57,15 @@ public partial class GamePage : ContentPage
         currentStopwatch.Start();
         while (_isPlaying)
         {
-            currentBar.HeightRequest += 1;
+            currentBar.HeightRequest += 5; // Increase growth speed
             await Task.Delay(10);
+
+            if (currentBar.HeightRequest >= BarGrid.Height) // Check if bar reached the top
+            {
+                _isPlaying = false;
+                ShowGameOverDialog();
+                return;
+            }
         }
         currentStopwatch.Stop();
         _isPlaying = true;
@@ -74,12 +78,24 @@ public partial class GamePage : ContentPage
 
     private async void StopButton_Clicked(object sender, EventArgs e)
     {
+        if (!_stopwatches[_currentBarIndex].IsRunning && _stopwatches[_currentBarIndex].Elapsed.TotalMilliseconds == 0)
+        {
+            ShowGameOverDialog(); // Show the game over dialog with "N/A" as default
+            return;
+        }
+
         _isPlaying = false;
+
         if (IsGameOver())
         {
             double averageTime = _stopwatches.Average(sw => sw.Elapsed.TotalMilliseconds);
-            await DisplayAlert("Game Over", $"Average Time: {averageTime:0.00} ms", "OK");
-            await Navigation.PopAsync();
+            ShowGameOverDialog($"{averageTime:0.00} ms");
         }
+    }
+
+    private async void ShowGameOverDialog(string averageTime = "N/A")
+    {
+        await DisplayAlert("Game Over", $"Average Time: {averageTime}", "OK");
+        await Navigation.PopAsync();
     }
 }

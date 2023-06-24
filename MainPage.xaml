@@ -4,13 +4,23 @@
              x:Class="ReflexSmurf.MainPage">
 
     <Grid BackgroundColor="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <Label x:Name="TitleLabel"
+               Grid.Row="0"
                Text="Reflex Game"
+               FontSize="Large"
+               FontAttributes="Bold"
                HorizontalOptions="Center"
-               VerticalOptions="Center" />
+               VerticalOptions="Start"
+               Margin="0,50,0,0" />
+
         <Button x:Name="StartGameButton"
+                Grid.Row="1"
                 Text="Start Game"
-                Margin="0,50,0,0"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="StartGameButton_Clicked" />
