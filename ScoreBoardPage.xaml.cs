@@ -1,28 +1,20 @@
-using System.Text.Json;
-
 namespace ReflexSmurf;
 
 public partial class ScoreBoardPage : ContentPage
 {
-	public ScoreBoardPage()
-	{
-		InitializeComponent();
+    private readonly ScoreService scoreService = new();
+
+    private List<Score> highScores;
+
+    public ScoreBoardPage()
+    {
+        InitializeComponent();
         LoadScores();
     }
 
-    private async void LoadScores()
+    private void LoadScores()
     {
-        const string filename = "scores.json";
-        var scores = new List<Score>();
-
-        if (File.Exists(filename))
-        {
-            var json = await File.ReadAllTextAsync(filename);
-            scores = JsonSerializer.Deserialize<List<Score>>(json) ?? new List<Score>();
-        }
-
-        ScoreListView.ItemsSource = scores;
+        highScores = scoreService.LoadScores();
+        ScoreListView.ItemsSource = highScores.OrderBy(s => s.Value).Take(10);
     }
-
-
 }

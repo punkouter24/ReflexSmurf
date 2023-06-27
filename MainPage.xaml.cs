@@ -9,16 +9,13 @@ public partial class MainPage : ContentPage
 
     private async void StartGameButton_Clicked(object sender, EventArgs e)
     {
-        var gamePage = new GamePage();
+        GamePage gamePage = new();
         await Navigation.PushAsync(gamePage);
     }
 
     private async void ViewScoresButton_Clicked(object sender, EventArgs e)
     {
-        var scoreBoardPage = new ScoreBoardPage();
+        ScoreBoardPage scoreBoardPage = new();
         await Navigation.PushAsync(scoreBoardPage);
     }
 }
-
-
-

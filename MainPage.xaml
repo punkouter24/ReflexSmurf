@@ -1,36 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ReflexSmurf.MainPage">
+             x:Class="ReflexSmurf.MainPage" BackgroundColor="#282828">
 
-    <Grid BackgroundColor="Gray">
+    <Grid Padding="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Label x:Name="TitleLabel"
                Grid.Row="0"
-               Text="Reflex Game"
-               FontSize="Large"
+               Text="Reflex Smurf"
+               FontSize="32"
+               TextColor="White"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                VerticalOptions="Start"
                Margin="0,50,0,0" />
 
+        <Label x:Name="Readme"
+               Grid.Row="1"
+               Text="Click the STOP button as soon as a bar moves. Your score is an average of your time to press the STOP button"
+               FontSize="24"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
         <Button x:Name="StartGameButton"
-                Grid.Row="1"
+                Grid.Row="2"
                 Text="Start Game"
+                BackgroundColor="#545454"
+                TextColor="White"
+                FontSize="20"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="StartGameButton_Clicked" />
+                Clicked="StartGameButton_Clicked"
+                Margin="0, 20" />
 
         <Button x:Name="ViewScoresButton"
-        Text="View Top 10 Scores"
-        Margin="0,20,0,0"
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        Clicked="ViewScoresButton_Clicked" />
+                Grid.Row="3"
+                Text="View Top 10 Scores"
+                BackgroundColor="#545454"
+                TextColor="White"
+                FontSize="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="ViewScoresButton_Clicked"
+                Margin="0,20,0,50" />
     </Grid>
 
 </ContentPage>

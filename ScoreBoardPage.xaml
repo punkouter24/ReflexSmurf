@@ -2,15 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReflexSmurf.ScoreBoardPage"
-             Title="ScoreBoardPage">
-    <StackLayout Padding="30" BackgroundColor="Gray">
-        <Label Text="Top 10 Scores" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" />
-        <ListView x:Name="ScoreListView" BackgroundColor="LightGray">
-            <ListView.ItemTemplate>
+             Title="Score Board">
+    <ContentPage.Resources>
+        <Style x:Key="headerStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="itemStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Medium" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="30" BackgroundColor="#f8f8f8">
+        <Frame BackgroundColor="#343a40" CornerRadius="16" Padding="24">
+            <Label Text="Top 10 Scores" Style="{StaticResource headerStyle}" />
+        </Frame>
+
+        <CollectionView x:Name="ScoreListView" BackgroundColor="#f8f8f8" ItemsLayout="VerticalList">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Value}" Detail="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd HH:mm}'}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="{Binding Position}" Style="{StaticResource itemStyle}" />
+                        <Label Grid.Column="1" Text="{Binding Value}" Style="{StaticResource itemStyle}" />
+                        <Label Grid.Column="2" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd HH:mm}'}" 
+                               HorizontalTextAlignment="End" Style="{StaticResource itemStyle}" />
+                    </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </StackLayout>
 </ContentPage>
