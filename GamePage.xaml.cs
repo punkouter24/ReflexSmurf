@@ -4,7 +4,7 @@ namespace ReflexSmurf;
 
 public partial class GamePage : ContentPage
 {
-   // private readonly ScoreService scoreService = new();
+    private readonly ScoreService scoreService = new();
 
     private List<BoxView> _bars;
     private List<Stopwatch> _stopwatches;
@@ -103,9 +103,9 @@ public partial class GamePage : ContentPage
         if (averageTime != "N/A")
         {
             int averageTimeInt = Convert.ToInt32(100 * Convert.ToDouble(averageTime));
-           // highScores = scoreService.LoadScores();
-          //  highScores.Add(new Score(averageTimeInt, DateTime.Now));
-           // scoreService.SaveScore(highScores);
+            highScores = scoreService.LoadScores();
+            highScores.Add(new Score(averageTimeInt, DateTime.Now));
+            scoreService.SaveScore(highScores);
         }
 
         await DisplayAlert("Game Over", $"Average Time: {averageTime}", "OK");
