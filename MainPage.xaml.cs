@@ -9,6 +9,9 @@ public partial class MainPage : ContentPage
 
     private async void StartGameButton_Clicked(object sender, EventArgs e)
     {
+        // Store the name entered by the user in the UserData class
+        UserData.UserName = UserNameEntry.Text;
+
         GamePage gamePage = new();
         await Navigation.PushAsync(gamePage);
     }

@@ -28,10 +28,12 @@
                             <ColumnDefinition Width="2*" />
                             <ColumnDefinition Width="3*" />
                             <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="3*" />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Text="{Binding Position}" Style="{StaticResource itemStyle}" />
-                        <Label Grid.Column="1" Text="{Binding Value}" Style="{StaticResource itemStyle}" />
-                        <Label Grid.Column="2" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd HH:mm}'}" 
+                        <Label Grid.Column="1" Text="{Binding UserName}" Style="{StaticResource itemStyle}" />
+                        <Label Grid.Column="2" Text="{Binding Value}" Style="{StaticResource itemStyle}" />
+                        <Label Grid.Column="3" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd HH:mm}'}" 
                                HorizontalTextAlignment="End" Style="{StaticResource itemStyle}" />
                     </Grid>
                 </DataTemplate>

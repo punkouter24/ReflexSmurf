@@ -21,7 +21,7 @@ namespace ReflexSmurf
 
                 for (int i = 0; i < 10; i++)
                 {
-                    highScores.Add(new Score(99999, DateTime.Now));
+                    highScores.Add(new Score("xxxx", 99999, DateTime.Now));
                 }
 
                 File.WriteAllText(filePath, JsonSerializer.Serialize(highScores));

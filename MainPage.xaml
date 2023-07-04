@@ -6,6 +6,7 @@
     <Grid Padding="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -29,8 +30,18 @@
                HorizontalOptions="Center"
                VerticalOptions="Center" />
 
+        <Entry x:Name="UserNameEntry"
+               Grid.Row="2"
+               Placeholder="Enter your name"
+               FontSize="24"
+               TextColor="White"
+               PlaceholderColor="Gray"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,20,0,0" />
+
         <Button x:Name="StartGameButton"
-                Grid.Row="2"
+                Grid.Row="3"
                 Text="Start Game"
                 BackgroundColor="#545454"
                 TextColor="White"
@@ -41,7 +52,7 @@
                 Margin="0, 20" />
 
         <Button x:Name="ViewScoresButton"
-                Grid.Row="3"
+                Grid.Row="4"
                 Text="View Top 10 Scores"
                 BackgroundColor="#545454"
                 TextColor="White"

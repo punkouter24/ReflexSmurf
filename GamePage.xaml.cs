@@ -104,7 +104,9 @@ public partial class GamePage : ContentPage
         {
             int averageTimeInt = Convert.ToInt32(100 * Convert.ToDouble(averageTime));
             highScores = scoreService.LoadScores();
-            highScores.Add(new Score(averageTimeInt, DateTime.Now));
+            //get username from static class
+            string userName = UserData.UserName;
+            highScores.Add(new Score(userName, averageTimeInt, DateTime.Now));
             scoreService.SaveScore(highScores);
         }
 
