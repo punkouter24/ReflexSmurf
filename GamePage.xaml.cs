@@ -13,6 +13,7 @@ public partial class GamePage : ContentPage
     private int _currentBarIndex;
     private bool _isPlaying;
 
+    [Obsolete]
     public GamePage()
     {
         InitializeComponent();
@@ -93,6 +94,10 @@ public partial class GamePage : ContentPage
 
         if (IsGameOver())
         {
+            //remove the lowest score and the highest score and average the rest
+            _stopwatches.RemoveAt(_stopwatches.IndexOf(_stopwatches.Min()));
+            _stopwatches.RemoveAt(_stopwatches.IndexOf(_stopwatches.Max()));
+
             double averageTime = _stopwatches.Average(sw => sw.Elapsed.TotalMilliseconds);
             ShowGameOverDialog($"{averageTime:0.00} ms");
         }
@@ -104,7 +109,6 @@ public partial class GamePage : ContentPage
         {
             int averageTimeInt = Convert.ToInt32(100 * Convert.ToDouble(averageTime));
             highScores = scoreService.LoadScores();
-            //get username from static class
             string userName = UserData.UserName;
             highScores.Add(new Score(userName, averageTimeInt, DateTime.Now));
             scoreService.SaveScore(highScores);

@@ -1,43 +1,74 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Main Content Page for Score Board -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReflexSmurf.ScoreBoardPage"
              Title="Score Board">
+
+    <!-- Page Resource Styles -->
     <ContentPage.Resources>
+
+        <!-- Header Style -->
         <Style x:Key="headerStyle" TargetType="Label">
             <Setter Property="FontSize" Value="30" />
             <Setter Property="FontAttributes" Value="Bold" />
             <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             <Setter Property="TextColor" Value="White" />
         </Style>
+
+        <!-- Item Style for Scores -->
         <Style x:Key="itemStyle" TargetType="Label">
             <Setter Property="FontSize" Value="Medium" />
         </Style>
+
     </ContentPage.Resources>
 
+    <!-- Main Content Layout -->
     <StackLayout Padding="30" BackgroundColor="#f8f8f8">
+
+        <!-- Header Frame -->
         <Frame BackgroundColor="#343a40" CornerRadius="16" Padding="24">
             <Label Text="Top 10 Scores" Style="{StaticResource headerStyle}" />
         </Frame>
 
+        <!-- Score List -->
         <CollectionView x:Name="ScoreListView" BackgroundColor="#f8f8f8" ItemsLayout="VerticalList">
+
+            <!-- Template for each Score Item -->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid ColumnSpacing="20">
+                        <!-- Adding Column Spacing -->
+
+                        <!-- Grid Column Definitions -->
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <!-- Change to star sizing to use available space -->
+                            <ColumnDefinition Width="*" />
+                            <!-- Change to star sizing to use available space -->
                             <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="3*" />
+                            <!-- Allocate more space for Timestamp -->
                         </Grid.ColumnDefinitions>
+
+                        <!-- Position Label -->
                         <Label Grid.Column="0" Text="{Binding Position}" Style="{StaticResource itemStyle}" />
+
+                        <!-- User Name Label -->
                         <Label Grid.Column="1" Text="{Binding UserName}" Style="{StaticResource itemStyle}" />
+
+                        <!-- Value Label -->
                         <Label Grid.Column="2" Text="{Binding Value}" Style="{StaticResource itemStyle}" />
+
+                        <!-- Timestamp Label -->
                         <Label Grid.Column="3" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd HH:mm}'}" 
-                               HorizontalTextAlignment="End" Style="{StaticResource itemStyle}" />
+                   HorizontalTextAlignment="End" Style="{StaticResource itemStyle}" />
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+
         </CollectionView>
 
     </StackLayout>
