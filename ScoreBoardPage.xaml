@@ -62,7 +62,7 @@
                         <Label Grid.Column="2" Text="{Binding Value}" Style="{StaticResource itemStyle}" />
 
                         <!-- Timestamp Label -->
-                        <Label Grid.Column="3" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd HH:mm}'}" 
+                        <Label Grid.Column="3" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd}'}" 
                    HorizontalTextAlignment="End" Style="{StaticResource itemStyle}" />
 
                     </Grid>
