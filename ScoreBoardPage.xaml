@@ -33,35 +33,21 @@
         </Frame>
 
         <!-- Score List -->
+        <!--
         <CollectionView x:Name="ScoreListView" BackgroundColor="#f8f8f8" ItemsLayout="VerticalList">
 
-            <!-- Template for each Score Item -->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnSpacing="20">
-                        <!-- Adding Column Spacing -->
-
-                        <!-- Grid Column Definitions -->
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
-                            <!-- Change to star sizing to use available space -->
                             <ColumnDefinition Width="*" />
-                            <!-- Change to star sizing to use available space -->
                             <ColumnDefinition Width="2*" />
-                            <!-- Allocate more space for Timestamp -->
                         </Grid.ColumnDefinitions>
-
-                        <!-- Position Label -->
                         <Label Grid.Column="0" Text="{Binding Position}" Style="{StaticResource itemStyle}" />
-
-                        <!-- User Name Label -->
                         <Label Grid.Column="1" Text="{Binding UserName}" Style="{StaticResource itemStyle}" />
-
-                        <!-- Value Label -->
                         <Label Grid.Column="2" Text="{Binding Value}" Style="{StaticResource itemStyle}" />
-
-                        <!-- Timestamp Label -->
                         <Label Grid.Column="3" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd}'}" 
                    HorizontalTextAlignment="End" Style="{StaticResource itemStyle}" />
 
@@ -70,6 +56,15 @@
             </CollectionView.ItemTemplate>
 
         </CollectionView>
+        -->
+
+        <Grid x:Name="ScoreGrid">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+</Grid>
 
     </StackLayout>
 </ContentPage>

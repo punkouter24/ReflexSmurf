@@ -18,3 +18,25 @@ public partial class ScoreBoardPage : ContentPage
         ScoreListView.ItemsSource = highScores.OrderBy(s => s.Value).Take(10);
     }
 }
+
+/* foreach (var score in highScores)
+{
+    // Create new row in the grid for each score
+    Grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+
+// Create and add labels for each property of the score
+var nameLabel = new Label { Text = score.UserName };
+Grid.SetRow(nameLabel, Grid.RowDefinitions.Count - 1);
+Grid.SetColumn(nameLabel, 0);
+Grid.Children.Add(nameLabel);
+
+var valueLabel = new Label { Text = score.Value.ToString() };
+Grid.SetRow(valueLabel, Grid.RowDefinitions.Count - 1);
+Grid.SetColumn(valueLabel, 1);
+Grid.Children.Add(valueLabel);
+
+var timestampLabel = new Label { Text = score.Timestamp.ToString() };
+Grid.SetRow(timestampLabel, Grid.RowDefinitions.Count - 1);
+Grid.SetColumn(timestampLabel, 2);
+Grid.Children.Add(timestampLabel);
+} */
