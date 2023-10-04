@@ -59,12 +59,12 @@
         -->
 
         <Grid x:Name="ScoreGrid">
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
-</Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
 
     </StackLayout>
 </ContentPage>
