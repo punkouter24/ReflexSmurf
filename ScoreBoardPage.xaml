@@ -26,45 +26,17 @@
 
     <!-- Main Content Layout -->
     <StackLayout Padding="30" BackgroundColor="#f8f8f8">
-
         <!-- Header Frame -->
         <Frame BackgroundColor="#343a40" CornerRadius="16" Padding="24">
             <Label Text="Top 10 Scores" Style="{StaticResource headerStyle}" />
         </Frame>
 
-        <!-- Score List -->
-        <!--
-        <CollectionView x:Name="ScoreListView" BackgroundColor="#f8f8f8" ItemsLayout="VerticalList">
-
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnSpacing="20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="2*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="{Binding Position}" Style="{StaticResource itemStyle}" />
-                        <Label Grid.Column="1" Text="{Binding UserName}" Style="{StaticResource itemStyle}" />
-                        <Label Grid.Column="2" Text="{Binding Value}" Style="{StaticResource itemStyle}" />
-                        <Label Grid.Column="3" Text="{Binding Timestamp, StringFormat='{0:yyyy-MM-dd}'}" 
-                   HorizontalTextAlignment="End" Style="{StaticResource itemStyle}" />
-
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-
-        </CollectionView>
-        -->
-
         <Grid x:Name="ScoreGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
         </Grid>
-
     </StackLayout>
 </ContentPage>
