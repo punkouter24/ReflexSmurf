@@ -107,7 +107,7 @@ public partial class GamePage : ContentPage
     {
         if (averageTime != "N/A")
         {
-            int averageTimeInt = Convert.ToInt32(100 * Convert.ToDouble(averageTime));
+            int averageTimeInt = Convert.ToInt32(Convert.ToDouble(averageTime));
             highScores = scoreService.LoadScores();
             string userName = UserData.UserName;
             highScores.Add(new Score(userName, averageTimeInt, DateTime.Now));

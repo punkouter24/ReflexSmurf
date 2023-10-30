@@ -19,10 +19,10 @@ namespace ReflexSmurf
             {
                 highScores = new List<Score>();
 
-                for (int i = 0; i < 10; i++)
-                {
-                    highScores.Add(new Score("xxxx", 99999, DateTime.Now));
-                }
+                //for (int i = 0; i < 10; i++)
+                //{
+                //    highScores.Add(new Score("xxxx", 99999, DateTime.Now));
+                //}
 
                 File.WriteAllText(filePath, JsonSerializer.Serialize(highScores));
             }

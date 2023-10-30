@@ -31,7 +31,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
-	  <CodesignKey>Apple Development: Created via API (VWU7SNPRDM)</CodesignKey>
+	  <CodesignKey>Apple Development: Created via API (8GFDS85632)</CodesignKey>
 	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
 	  <ProvisioningType>automatic</ProvisioningType>
 	</PropertyGroup>

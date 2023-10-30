@@ -15,10 +15,7 @@ public partial class ScoreBoardPage : ContentPage
     private void LoadScores()
     {
         highScores = scoreService.LoadScores();
-        // ScoreListView.ItemsSource = highScores.OrderBy(s => s.Value).Take(10);
-
-
-        highScores.OrderBy(s => s.Value).Take(10);
+        highScores = highScores.OrderBy(s => s.Value).Take(10).ToList();
 
         foreach (var score in highScores)
         {
@@ -41,6 +38,5 @@ public partial class ScoreBoardPage : ContentPage
             Grid.SetColumn(timestampLabel, 2);
             ScoreGrid.Children.Add(timestampLabel);
         }
-
     }
 }
