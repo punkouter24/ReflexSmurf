@@ -7,6 +7,7 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
+    [Obsolete]
     private async void StartGameButton_Clicked(object sender, EventArgs e)
     {
         // Store the name entered by the user in the UserData class

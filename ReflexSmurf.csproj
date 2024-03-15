@@ -42,6 +42,9 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
 	  <ApplicationId>com.punkoutersoftware.reflexsmurf</ApplicationId>
+	  <BuildIpa>False</BuildIpa>
+	  <EmbedOnDemandResources>False</EmbedOnDemandResources>
+	  <IpaIncludeArtwork>False</IpaIncludeArtwork>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
@@ -54,6 +57,9 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
 	  <ApplicationId>com.punkoutersoftware.reflexsmurf</ApplicationId>
+	  <BuildIpa>False</BuildIpa>
+	  <EmbedOnDemandResources>False</EmbedOnDemandResources>
+	  <IpaIncludeArtwork>False</IpaIncludeArtwork>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
@@ -61,7 +67,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
-	  <CodesignKey>Apple Development: Created via API (FP3L7ZK69G)</CodesignKey>
+	  <CodesignKey>Apple Development: Created via API (656S2G9S6U)</CodesignKey>
 	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
 	</PropertyGroup>
 
@@ -84,7 +90,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -94,6 +100,14 @@
 	  <MauiXaml Update="ScoreBoardPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.10" />
 	</ItemGroup>
 
 </Project>
