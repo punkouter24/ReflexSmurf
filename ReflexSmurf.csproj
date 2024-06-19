@@ -67,8 +67,9 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
-	  <CodesignKey>Apple Development: Created via API (H9UD629RC5)</CodesignKey>
+	  <CodesignKey>Apple Development: Created via API (4HL7VP3NNC)</CodesignKey>
 	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
+	  <ProvisioningType>automatic</ProvisioningType>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -91,6 +92,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.40" />
 	</ItemGroup>
 
 	<ItemGroup>
